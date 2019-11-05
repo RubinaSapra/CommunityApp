@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>
+   Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="con">
+    <ion-item lines="none">
+      <div class= "ion-text-center">
+      <ion-icon name= "logo-rss" color=
+      "danger"></ion-icon>
+    </div>
+    </ion-item>
+    <ion-item class= "ion-text-center" lines="none" >
+        <div class= "ion-text-center">
+          <h1>Feedly</h1>
+    <h6>Connecting minds..</h6>
+    </div>
+    </ion-item>
+    <ion-grid style="width:75%;" >
+      <ion-row class="rr">
+        <ion-icon name="mail" color="danger" class="ri"></ion-icon>
+      <ion-input type="text" value="" placeholder="Username"  [(ngModel)]="email"></ion-input>
+    </ion-row>
+
+   <ion-row class="rr">
+      <ion-icon name="key" color="danger"  class="ri" ></ion-icon>
+      <ion-input type="password" value="" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-row>
+<ion-row>
+    <ion-button (click)="signIn()" color="danger" class="bs">Login </ion-button>
+    <ion-button (click)="signUp()" color="danger" class="bs">Don't  Have account? SignUp! </ion-button>
+</ion-row>
+</ion-grid>
+</ion-content>

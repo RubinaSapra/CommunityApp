@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>First Name</ion-label>
+    <ion-input [ngModel]="item.fname" placeholder="ABC "></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Second Name</ion-label>
+      <ion-input [ngModel]="item.lname" placeholder="ABC "></ion-input>
+    </ion-item>
+    <ion-item>
+
+        <ion-label>Age</ion-label>
+        <ion-input [ngModel]="item.age" placeholder="ABC "></ion-input>
+      </ion-item>
+
+      {{item | json}}
+
+      <button ion-button >Create</button>
+
+</ion-content>

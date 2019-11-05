@@ -1,0 +1,28 @@
+.ic{
+    color:red !important;
+    background-color: transparent;
+}
+.rowStyle{
+    border: 1px solid red;
+    border-radius: 30px;
+    margin-top:15px;
+
+    ion-input{
+        margin-top: 5px;
+    }
+    .bottombar{
+        background-color: lightblue;
+    }
+    .borderright{
+        border-right: 1px solid red;
+        color:red !important;
+    background-color: transparent;
+    }
+    .roundcorners{
+        border-radius: 24px;
+    }
+}
+.log-out{
+   color:red !important;
+    float:right;
+}

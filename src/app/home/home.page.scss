@@ -1,1 +1,25 @@
+ion-button {
+    margin:auto;
+    display: block;
+    flex-direction: row;
+    text-align: center;
+    margin-top: 30px;
+    width: 100px;
+}
+.page-centered-element{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    text-align: center;
 
+    .buttons-container{
+        margin-top: 30px;
+    }
+}

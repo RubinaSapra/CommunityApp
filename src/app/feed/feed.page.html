@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Feed
+      <ion-button end  class="log-out" >
+        <button ion-button icon-only clear>
+          <ion-icon name="log-out" (click)="logout()"></ion-icon>
+        </button>
+      </ion-button>
+
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <!-- {{email}} -->
+ <input type="file" (change)="upload2($event)" class="image-upload" accept="image/*" />
+ <!-- <input (change)="uploadImage($event)" type="file" class="image-upload" accept="image/*"> -->
+<ion-row class="ion-margin rowStyle">
+
+  <button ion-button icon-only class="ic" clear>
+    <ion-icon name="images" (click)="addPhoto()"></ion-icon>
+  </button>
+
+  <ion-input type="text" placeholder="Post Something.. " [(ngModel)]="text"></ion-input>
+  <button ion-button icon-only class="ic"  (click)="post()" clear>
+    <ion-icon name="send"></ion-icon>
+  </button>
+</ion-row>
+
+<ion-row class="rowStyle" *ngIf="image">
+  <ion-card class="roundcorners">
+    <img [src]="image" class="roundcorners">
+  </ion-card>
+</ion-row>
+
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content
+    pullingIcon="arrow-dropdown"
+    pullingText="Pull to refresh"
+    refreshingSpinner="circles"
+    refreshingText="Refreshing...">
+  </ion-refresher-content>
+</ion-refresher>
+
+<ion-card *ngFor="let post of posts">
+  <ion-item-divider color="danger">
+    {{ post.data().owner_name }} says
+  </ion-item-divider>
+  <ion-item class="ion-text-wrap">
+      {{ post.data().text}}
+  </ion-item>
+
+  <img [src]="post.data().image" *ngIf="post.data().image">
+  <ion-row class="bottombar">
+    <ion-col>
+      <button ion-button block icon-left clear small color="danger" class="borderright" (click)="like(post)" >
+        <ion-icon  name="thumbs-up"></ion-icon>
+        <small>12 Likes</small> 
+      </button>
+    </ion-col>
+    <ion-col>
+        <button ion-button block icon-left clear small color="danger" class="borderright" >
+            <ion-icon name="text"></ion-icon>
+            <small>12 Comments</small>
+          </button>      
+    </ion-col>
+    <ion-col>
+        <button ion-button block icon-left clear small color="danger">
+            <small>{{ ago(post.data().created.toDate()) }} ago </small>
+          </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
+<ion-infinite-scroll (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+</ion-content>
+
+
